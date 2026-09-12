@@ -64,5 +64,15 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Aervivo is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://www.nasdaqprivatemarket.com/
+Aervivo, Inc. is a San Diego, California company founded in 2020 that sells the Aervivo Connectivity Platform, a cloud operating system paired with the Aervivo Hybrid Edge ecosystem of fiber and fixed-wireless networking equipment (AerHub, AerSwitch). It lets multifamily property owners, fiber overbuilders, WISPs and incumbent ISPs deploy and operate community-wide gigabit managed WiFi without a full fiber build, bundling a virtualized core network with cloud-based OSS and BSS. Aervivo publishes no developer portal, API reference or machine-readable contract; its partner surface is a Salesforce Experience Cloud portal behind a login at portal.aervivo.com, and the only anonymous machine surface on its own hosts is the Wix Site MCP endpoint its marketing site serves.
+
+## Profile
+
+- **Website** — https://www.aervivo.com/
+- **Partner portal (login)** — https://portal.aervivo.com/
+- **llms.txt** — https://www.aervivo.com/llms.txt (`llms/aervivo-llms.txt`)
+- **MCP endpoint** — https://www.aervivo.com/_api/mcp (live, anonymous, 9 tools — stock Wix Site MCP runtime, not an Aervivo-authored server)
+- **Coverage** — `gated` / `partner-login`: no developer site; the only application surface redirects to a Salesforce Experience Cloud login.
+- **Harvest source** — secondary-market listing at https://www.nasdaqprivatemarket.com/ (a trading venue, not Aervivo's web presence; the `Website` pointer was corrected to aervivo.com in the 2026-09-12 pass).
+
+No OpenAPI, AsyncAPI, GraphQL SDL, Protobuf or WSDL is published on any Aervivo host.

@@ -1,0 +1,46 @@
+generated: '2026-09-12'
+method: probed
+source: https://portal.aervivo.com/.well-known/openid-configuration
+summary: >-
+  Aervivo publishes no developer API and no public authentication documentation. The only
+  authentication surface reachable without credentials is the OpenID Connect discovery document
+  for its partner portal at portal.aervivo.com, which is a Salesforce Experience Cloud site
+  running under Aervivo's domain. The issuer is https://portal.aervivo.com, so the endpoints
+  below are Aervivo-hosted, but the flows, scopes and claims are the Salesforce identity
+  platform's, not an Aervivo-designed API auth model.
+schemes:
+- id: aervivo-portal-oidc
+  type: openIdConnect
+  openIdConnectUrl: https://portal.aervivo.com/.well-known/openid-configuration
+  issuer: https://portal.aervivo.com
+  operator: Salesforce Experience Cloud (tenant surface on an Aervivo host)
+  audience: partners, vendors and residents of Aervivo-served communities
+  endpoints:
+    authorization: https://portal.aervivo.com/services/oauth2/authorize
+    token: https://portal.aervivo.com/services/oauth2/token
+    userinfo: https://portal.aervivo.com/services/oauth2/userinfo
+    jwks: https://portal.aervivo.com/id/keys
+    revocation: https://portal.aervivo.com/services/oauth2/revoke
+    introspection: https://portal.aervivo.com/services/oauth2/introspect
+    registration: https://portal.aervivo.com/services/oauth2/register
+    end_session: https://portal.aervivo.com/services/auth/idp/oidc/logout
+  grant_types: [authorization_code, refresh_token]
+  response_types: [code, token, token id_token]
+  pkce:
+    supported: true
+    code_challenge_methods: [S256]
+  dpop:
+    supported: true
+    algs: [RS256, RS384, RS512, ES256, ES384, ES512, EdDSA]
+  token_endpoint_auth_methods: [client_secret_post, client_secret_basic, private_key_jwt]
+  id_token_signing_algs: [RS256]
+  dynamic_client_registration: true
+  front_channel_logout: true
+  scopes: scopes/aervivo-scopes.yml
+public_api_auth: none
+docs: null
+gaps:
+- No public developer portal, API reference or authentication guide is published on aervivo.com.
+- >-
+  The MCP endpoint at https://www.aervivo.com/_api/mcp accepts anonymous tools/list calls; the
+  Wix visitor-token flow it documents is a Wix platform mechanism, not an Aervivo credential.

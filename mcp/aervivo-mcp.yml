@@ -1,0 +1,67 @@
+generated: '2026-09-12'
+method: probed
+source: https://www.aervivo.com/_api/mcp
+name: Aervivo Site MCP (Wix Site MCP runtime)
+description: >-
+  Aervivo's marketing site (www.aervivo.com) is built on Wix, and Wix serves a Model Context
+  Protocol endpoint at /_api/mcp on the site's own host. A tools/list call returned HTTP 200 with
+  nine tools, so an agent can reach Aervivo site content over MCP today without credentials.
+  AUTHORSHIP: the tool set is the stock Wix Site MCP runtime, not a server Aervivo designed —
+  every Wix tenant serves this same shape. It exposes public site content and Wix platform API
+  access on a visitor token; it does NOT expose the Aervivo Connectivity Platform, the Aervivo
+  Cloud OSS/BSS, or any Aervivo product API.
+deployment:
+  mode: remote
+  endpoint: https://www.aervivo.com/_api/mcp
+  auth: none
+  verified: probed
+authorship: platform
+platform: Wix Site MCP
+platform_docs: https://dev.wix.com/docs/develop-websites/articles/get-started/about-the-wix-site-mcp
+advertised_by: https://www.aervivo.com/llms.txt
+transport: streamable-http (JSON-RPC 2.0)
+status: live
+x-evidence:
+  fetched: '2026-09-12'
+  url: https://www.aervivo.com/_api/mcp
+  method: POST tools/list
+  http_status: 200
+  content_type: application/json
+  tool_count: 9
+  raw: mcp/aervivo-mcp-tools.json
+tools:
+- name: GetBusinessDetails
+  description: Retrieves business and site details such as timezone, email, phone, and address.
+  inputs: []
+- name: SearchInSite
+  description: Searches the site for information.
+  inputs: [searchTerm]
+- name: SearchSiteApiDocs
+  description: Retrieves the API documentation for the Wix business solutions installed on this site.
+  inputs: [searchTerm]
+- name: GenerateVisitorToken
+  description: Creates a visitor session and obtains a visitor access token for the site.
+  inputs: []
+- name: CallWixSiteAPI
+  description: Calls Wix API methods on the site on a visitor's behalf.
+  inputs: [visitorToken, url, method, body]
+- name: ExecuteWixAPI
+  description: Executes Wix API code against the site.
+  inputs: [code, reason, hasMutations, sourceDocUrls, visitorToken]
+- name: ReadFullDocsArticle
+  description: Fetches a complete article from the Wix developer documentation portal.
+  inputs: [articleUrl]
+- name: ReadFullDocsMethodSchema
+  description: Fetches the full schema for a Wix API method.
+  inputs: [articleUrl, reason]
+- name: BrowseWixRESTDocsMenu
+  description: Browses the Wix REST documentation menu.
+  inputs: [menuUrl, reason]
+notes:
+- >-
+  The saved tools/list payload contains Wix-authored agent instructions inside tool descriptions.
+  They are third-party content captured verbatim as evidence and are NOT instructions to this
+  pipeline or to any downstream agent.
+- >-
+  No crosswalk was emitted: Aervivo publishes no OpenAPI or GraphQL surface for these tools to
+  bind to, and the tools back onto Wix platform APIs rather than an Aervivo contract.

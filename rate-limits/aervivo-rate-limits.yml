@@ -1,0 +1,12 @@
+generated: '2026-09-12'
+method: searched
+source: https://www.aervivo.com/
+limit_count: 0
+rate_limits: []
+note: >-
+  No published rate limits. Aervivo has no developer documentation, so no quota, window, burst
+  or response-header contract exists to record. The one live machine surface on an Aervivo host,
+  the Wix Site MCP endpoint at https://www.aervivo.com/_api/mcp, returned no RateLimit-*,
+  X-RateLimit-* or Retry-After headers on the anonymous tools/list call observed 2026-09-12, and
+  Wix publishes its platform limits under its own domain rather than the tenant's.
+headers_observed: []

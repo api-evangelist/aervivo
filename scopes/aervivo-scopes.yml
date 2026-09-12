@@ -1,0 +1,51 @@
+generated: '2026-09-12'
+method: probed
+source: https://portal.aervivo.com/.well-known/openid-configuration
+note: 'scopes_supported as advertised by the authorization server at issuer https://portal.aervivo.com.
+  IMPORTANT: this is a Salesforce Experience Cloud identity surface running on an Aervivo host - the vocabulary
+  below is the Salesforce platform''s standard scope set (api, web, lightning, pardot_api, cdp_* and so
+  on), not scopes Aervivo defined for an Aervivo API. Recorded verbatim because it is what the server
+  publishes; do not read it as evidence that Aervivo ships a scoped public API.'
+issuer: https://portal.aervivo.com
+operator: Salesforce Experience Cloud
+authorization_endpoint: https://portal.aervivo.com/services/oauth2/authorize
+token_endpoint: https://portal.aervivo.com/services/oauth2/token
+scope_count: 36
+scopes:
+- scope: address
+- scope: api
+- scope: cdp_api
+- scope: cdp_calculated_insight_api
+- scope: cdp_identityresolution_api
+- scope: cdp_ingest_api
+- scope: cdp_profile_api
+- scope: cdp_query_api
+- scope: cdp_segment_api
+- scope: chatbot_api
+- scope: chatter_api
+- scope: content
+- scope: custom_permissions
+- scope: data_cloud_user_claims
+- scope: eclair_api
+- scope: einstein_gpt_api
+- scope: email
+- scope: forgot_password
+- scope: full
+- scope: id
+- scope: interaction_api
+- scope: lightning
+- scope: mcp_api
+- scope: offline_access
+- scope: openid
+- scope: pardot_api
+- scope: phone
+- scope: profile
+- scope: pwdless_login_api
+- scope: refresh_token
+- scope: scrt_api
+- scope: sfap_api
+- scope: user_registration_api
+- scope: visualforce
+- scope: wave_api
+- scope: web
+docs: null

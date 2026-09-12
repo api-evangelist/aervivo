@@ -1,0 +1,22 @@
+generated: '2026-09-12'
+method: searched
+source: https://www.aervivo.com/
+plan_count: 0
+plans: []
+note: >-
+  Aervivo publishes no pricing page and no plans. Every commercial path on the site ends in a
+  contact form ("Reach out to us and we'll email you a free, no obligation quote") or the
+  contact@aervivo.com / 408-357-3447 partner line. The business is partner licensing of the
+  Aervivo Connectivity Platform plus support and maintenance, quoted per community, so there is
+  no self-service tier, no metered API pricing and nothing published to record.
+pages_checked:
+- url: https://www.aervivo.com/
+  status: 200
+- url: https://www.aervivo.com/platform
+  status: 200
+- url: https://www.aervivo.com/real-estate
+  status: 200
+- url: https://www.aervivo.com/fiber-isps
+  status: 200
+- url: https://www.aervivo.com/wisps
+  status: 200

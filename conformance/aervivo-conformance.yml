@@ -1,0 +1,78 @@
+generated: '2026-09-12'
+method: probed
+source: >-
+  https://portal.aervivo.com/.well-known/openid-configuration and
+  https://www.aervivo.com/_api/mcp (tools/list)
+note: >-
+  Aervivo publishes no API contract of its own, so nothing here is derived from an Aervivo spec.
+  Every entry below is asserted only from a document actually fetched on an Aervivo host, and
+  each one describes a third-party platform runtime (Salesforce Experience Cloud identity, Wix
+  Site MCP) that Aervivo has deployed under its domain. No domain standard for telecom OSS/BSS
+  (TM Forum Open API, MEF LSO, ETSI OSM) is declared anywhere on an Aervivo surface.
+conformance:
+- id: oidc-discovery
+  standard: OpenID Connect Discovery 1.0
+  conforms: true
+  evidence: https://portal.aervivo.com/.well-known/openid-configuration
+  detail: Discovery document served at the well-known path with issuer, jwks_uri and endpoint set.
+- id: oauth2
+  standard: OAuth 2.0 (RFC 6749)
+  conforms: true
+  evidence: https://portal.aervivo.com/.well-known/openid-configuration
+  detail: 'grant_types_supported: authorization_code, refresh_token.'
+- id: pkce
+  standard: RFC 7636 (PKCE)
+  conforms: true
+  evidence: https://portal.aervivo.com/.well-known/openid-configuration
+  detail: 'code_challenge_methods_supported: [S256].'
+- id: dpop
+  standard: RFC 9449 (DPoP)
+  conforms: true
+  evidence: https://portal.aervivo.com/.well-known/openid-configuration
+  detail: dpop_signing_alg_values_supported advertises RS/ES/EdDSA families.
+- id: dynamic-client-registration
+  standard: RFC 7591
+  conforms: true
+  evidence: https://portal.aervivo.com/.well-known/openid-configuration
+  detail: registration_endpoint present.
+- id: token-introspection
+  standard: RFC 7662
+  conforms: true
+  evidence: https://portal.aervivo.com/.well-known/openid-configuration
+  detail: introspection_endpoint present.
+- id: token-revocation
+  standard: RFC 7009
+  conforms: true
+  evidence: https://portal.aervivo.com/.well-known/openid-configuration
+  detail: revocation_endpoint present.
+- id: oauth-authorization-server-metadata
+  standard: RFC 8414
+  conforms: false
+  evidence: https://portal.aervivo.com/.well-known/oauth-authorization-server
+  detail: Path answers 200 with an HTML login shell, not RFC 8414 metadata.
+- id: mcp
+  standard: Model Context Protocol (JSON-RPC 2.0 tools/list)
+  conforms: true
+  evidence: https://www.aervivo.com/_api/mcp
+  detail: >-
+    POST tools/list returned HTTP 200 with nine tools carrying inputSchema. Platform-authored
+    (stock Wix Site MCP runtime), not an Aervivo-designed server.
+- id: llms-txt
+  standard: llms.txt
+  conforms: true
+  evidence: https://www.aervivo.com/llms.txt
+  detail: Served at the site root with H1, summary blockquote and linked sections.
+- id: openapi
+  standard: OpenAPI
+  conforms: false
+  evidence: https://www.aervivo.com/openapi.json
+  detail: 400. No OpenAPI, Swagger, GraphQL SDL, AsyncAPI, .proto or WSDL found on any Aervivo host.
+domain_standards:
+- id: tmforum-open-api
+  standard: TM Forum Open API
+  conforms: false
+  evidence: https://www.aervivo.com/platform
+  detail: >-
+    The platform page markets "modularized, API architecture for rapid integration with legacy
+    systems" and a cloud BSS/OSS, but no TM Forum (or MEF/ETSI) conformance is claimed or
+    contracted anywhere public.

@@ -1,0 +1,98 @@
+generated: '2026-09-12'
+method: probed
+source: live HTTPS probes of every Aervivo host known to this record
+note: >-
+  One real document was found: the OpenID Connect discovery document for Aervivo's partner
+  portal at portal.aervivo.com, whose issuer is https://portal.aervivo.com. The portal is a
+  Salesforce Experience Cloud site running under Aervivo's own domain, so Aervivo serves the
+  document but the authorization server and its scope vocabulary are Salesforce's. Every other
+  200 on portal.aervivo.com is the Experience Cloud catch-all returning an HTML login shell,
+  NOT a document - those are recorded as misses. The Wix-hosted marketing site answers 400 for
+  every /.well-known/ path.
+hosts:
+- host: www.aervivo.com
+  platform: Wix
+  documents:
+  - path: /.well-known/security.txt
+    status: 400
+  - path: /.well-known/openid-configuration
+    status: 400
+  - path: /.well-known/oauth-authorization-server
+    status: 400
+  - path: /.well-known/oauth-protected-resource
+    status: 400
+  - path: /.well-known/api-catalog
+    status: 400
+  - path: /.well-known/ai-plugin.json
+    status: 400
+  - path: /.well-known/agent-card.json
+    status: 400
+  - path: /.well-known/agent.json
+    status: 400
+- host: aervivo.com
+  platform: Wix
+  documents:
+  - path: /.well-known/security.txt
+    status: 400
+  - path: /.well-known/openid-configuration
+    status: 400
+  - path: /.well-known/oauth-authorization-server
+    status: 400
+  - path: /.well-known/oauth-protected-resource
+    status: 400
+  - path: /.well-known/api-catalog
+    status: 400
+  - path: /.well-known/ai-plugin.json
+    status: 400
+  - path: /.well-known/agent-card.json
+    status: 400
+  - path: /.well-known/agent.json
+    status: 400
+- host: portal.aervivo.com
+  platform: Salesforce Experience Cloud
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: well-known/aervivo-portal-openid-configuration.json
+    content_type: application/json
+    document: true
+  - path: /.well-known/security.txt
+    status: 200
+    document: false
+    note: HTML login shell (Experience Cloud catch-all), not a security.txt - counted as a miss.
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    document: false
+    note: HTML login shell, not RFC 8414 metadata - counted as a miss.
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    document: false
+    note: HTML login shell - counted as a miss.
+  - path: /.well-known/api-catalog
+    status: 200
+    document: false
+    note: HTML login shell - counted as a miss.
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    document: false
+    note: HTML login shell - counted as a miss.
+  - path: /.well-known/agent-card.json
+    status: 200
+    document: false
+    note: HTML login shell, no AgentCard shape - counted as a miss; no agent card was saved.
+  - path: /.well-known/agent.json
+    status: 200
+    document: false
+    note: HTML login shell, no AgentCard shape - counted as a miss.
+other_discovery:
+- path: /llms.txt
+  host: www.aervivo.com
+  status: 200
+  file: llms/aervivo-llms.txt
+  note: Real llms.txt (Wix-generated) - indexed here for completeness; not a /.well-known/ path.
+- path: /robots.txt
+  host: www.aervivo.com
+  status: 200
+- path: /sitemap.xml
+  host: www.aervivo.com
+  status: 200
