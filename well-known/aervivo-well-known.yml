@@ -1,14 +1,12 @@
 generated: '2026-09-12'
 method: probed
 source: live HTTPS probes of every Aervivo host known to this record
-note: >-
-  One real document was found: the OpenID Connect discovery document for Aervivo's partner
-  portal at portal.aervivo.com, whose issuer is https://portal.aervivo.com. The portal is a
-  Salesforce Experience Cloud site running under Aervivo's own domain, so Aervivo serves the
-  document but the authorization server and its scope vocabulary are Salesforce's. Every other
-  200 on portal.aervivo.com is the Experience Cloud catch-all returning an HTML login shell,
-  NOT a document - those are recorded as misses. The Wix-hosted marketing site answers 400 for
-  every /.well-known/ path.
+note: 'One real document was found: the OpenID Connect discovery document for Aervivo''s partner portal
+  at portal.aervivo.com, whose issuer is https://portal.aervivo.com. The portal is a Salesforce Experience
+  Cloud site running under Aervivo''s own domain, so Aervivo serves the document but the authorization
+  server and its scope vocabulary are Salesforce''s. Every other 200 on portal.aervivo.com is the Experience
+  Cloud catch-all returning an HTML login shell, NOT a document - those are recorded as misses. The Wix-hosted
+  marketing site answers 400 for every /.well-known/ path.'
 hosts:
 - host: www.aervivo.com
   platform: Wix
@@ -53,7 +51,7 @@ hosts:
   documents:
   - path: /.well-known/openid-configuration
     status: 200
-    file: well-known/aervivo-portal-openid-configuration.json
+    file: aervivo-portal-openid-configuration.json
     content_type: application/json
     document: true
   - path: /.well-known/security.txt
