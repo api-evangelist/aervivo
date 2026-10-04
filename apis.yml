@@ -25,7 +25,7 @@ tags:
 - Wi-Fi
 - OSS BSS
 - Connectivity
-- Real-Estate
+- Real Estate
 - Cloud
 tags_raw:
 - Company
@@ -38,6 +38,7 @@ tags_raw:
 - Connectivity
 - Real Estate
 - Cloud
+- Real-Estate
 apis: []
 maintainers:
 - FN: Kin Lane
