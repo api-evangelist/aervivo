@@ -2,14 +2,12 @@ generated: '2026-09-12'
 method: probed
 source: https://www.aervivo.com/_api/mcp
 name: Aervivo Site MCP (Wix Site MCP runtime)
-description: >-
-  Aervivo's marketing site (www.aervivo.com) is built on Wix, and Wix serves a Model Context
-  Protocol endpoint at /_api/mcp on the site's own host. A tools/list call returned HTTP 200 with
-  nine tools, so an agent can reach Aervivo site content over MCP today without credentials.
-  AUTHORSHIP: the tool set is the stock Wix Site MCP runtime, not a server Aervivo designed —
-  every Wix tenant serves this same shape. It exposes public site content and Wix platform API
-  access on a visitor token; it does NOT expose the Aervivo Connectivity Platform, the Aervivo
-  Cloud OSS/BSS, or any Aervivo product API.
+description: 'Aervivo''s marketing site (www.aervivo.com) is built on Wix, and Wix serves a Model Context
+  Protocol endpoint at /_api/mcp on the site''s own host. A tools/list call returned HTTP 200 with nine
+  tools, so an agent can reach Aervivo site content over MCP today without credentials. AUTHORSHIP: the
+  tool set is the stock Wix Site MCP runtime, not a server Aervivo designed — every Wix tenant serves
+  this same shape. It exposes public site content and Wix platform API access on a visitor token; it does
+  NOT expose the Aervivo Connectivity Platform, the Aervivo Cloud OSS/BSS, or any Aervivo product API.'
 deployment:
   mode: remote
   endpoint: https://www.aervivo.com/_api/mcp
@@ -35,33 +33,83 @@ tools:
   inputs: []
 - name: SearchInSite
   description: Searches the site for information.
-  inputs: [searchTerm]
+  inputs:
+  - searchTerm
 - name: SearchSiteApiDocs
   description: Retrieves the API documentation for the Wix business solutions installed on this site.
-  inputs: [searchTerm]
+  inputs:
+  - searchTerm
 - name: GenerateVisitorToken
   description: Creates a visitor session and obtains a visitor access token for the site.
   inputs: []
 - name: CallWixSiteAPI
   description: Calls Wix API methods on the site on a visitor's behalf.
-  inputs: [visitorToken, url, method, body]
+  inputs:
+  - visitorToken
+  - url
+  - method
+  - body
 - name: ExecuteWixAPI
   description: Executes Wix API code against the site.
-  inputs: [code, reason, hasMutations, sourceDocUrls, visitorToken]
+  inputs:
+  - code
+  - reason
+  - hasMutations
+  - sourceDocUrls
+  - visitorToken
 - name: ReadFullDocsArticle
   description: Fetches a complete article from the Wix developer documentation portal.
-  inputs: [articleUrl]
+  inputs:
+  - articleUrl
 - name: ReadFullDocsMethodSchema
   description: Fetches the full schema for a Wix API method.
-  inputs: [articleUrl, reason]
+  inputs:
+  - articleUrl
+  - reason
 - name: BrowseWixRESTDocsMenu
   description: Browses the Wix REST documentation menu.
-  inputs: [menuUrl, reason]
+  inputs:
+  - menuUrl
+  - reason
 notes:
-- >-
-  The saved tools/list payload contains Wix-authored agent instructions inside tool descriptions.
-  They are third-party content captured verbatim as evidence and are NOT instructions to this
-  pipeline or to any downstream agent.
-- >-
-  No crosswalk was emitted: Aervivo publishes no OpenAPI or GraphQL surface for these tools to
-  bind to, and the tools back onto Wix platform APIs rather than an Aervivo contract.
+- The saved tools/list payload contains Wix-authored agent instructions inside tool descriptions. They
+  are third-party content captured verbatim as evidence and are NOT instructions to this pipeline or to
+  any downstream agent.
+- 'No crosswalk was emitted: Aervivo publishes no OpenAPI or GraphQL surface for these tools to bind to,
+  and the tools back onto Wix platform APIs rather than an Aervivo contract.'
+tool_quality:
+  tool_count: 10
+  tokens_total: 10614
+  tokens_per_tool_median: 986
+  heavy_tools:
+  - name: ExecuteWixAPI
+    tokens: 2344
+  - name: BrowseWixRESTDocsMenu
+    tokens: 1897
+  - name: ReadFullDocsMethodSchema
+    tokens: 1735
+  - name: ReadFullDocsArticle
+    tokens: 1630
+  - name: WixREADME
+    tokens: 1526
+  heavy_tool_count: 5
+  params_total: 16
+  params_undescribed: 0
+  params_described_pct: 100.0
+  tools_with_undescribed_params: 0
+  tools_annotated: 5
+  annotated_pct: 50.0
+  state_changing_unhinted:
+  - GenerateVisitorToken
+  tools_missing_schema: 0
+  short_descriptions: 0
+  duplicate_descriptions: 0
+  duplicate_names: 0
+  nonportable_names: []
+  output_schema_count: 0
+  token_estimate: chars/3.6 of each compact tool definition
+  source: mcp/aervivo-mcp-tools.json
+  measured: '2026-10-20'
+  scored: false
+  note: Facts from the saved tools/list capture (mcp_tool_quality.py); recorded, not scored. Checks learned
+    from Glimind's agent-readiness audit.
