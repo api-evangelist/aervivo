@@ -66,13 +66,106 @@
 
 Aervivo, Inc. is a San Diego, California company founded in 2020 that sells the Aervivo Connectivity Platform, a cloud operating system paired with the Aervivo Hybrid Edge ecosystem of fiber and fixed-wireless networking equipment (AerHub, AerSwitch). It lets multifamily property owners, fiber overbuilders, WISPs and incumbent ISPs deploy and operate community-wide gigabit managed WiFi without a full fiber build, bundling a virtualized core network with cloud-based OSS and BSS. Aervivo publishes no developer portal, API reference or machine-readable contract; its partner surface is a Salesforce Experience Cloud portal behind a login at portal.aervivo.com, and the only anonymous machine surface on its own hosts is the Wix Site MCP endpoint its marketing site serves.
 
-## Profile
+**Areas:** Company · Telecommunications · Internet Service Provider · Fixed Wireless · Networking · Wi-Fi · OSS BSS · Connectivity · Real Estate · Cloud
 
-- **Website** — https://www.aervivo.com/
-- **Partner portal (login)** — https://portal.aervivo.com/
-- **llms.txt** — https://www.aervivo.com/llms.txt (`llms/aervivo-llms.txt`)
-- **MCP endpoint** — https://www.aervivo.com/_api/mcp (live, anonymous, 9 tools — stock Wix Site MCP runtime, not an Aervivo-authored server)
-- **Coverage** — `gated` / `partner-login`: no developer site; the only application surface redirects to a Salesforce Experience Cloud login.
-- **Harvest source** — secondary-market listing at https://www.nasdaqprivatemarket.com/ (a trading venue, not Aervivo's web presence; the `Website` pointer was corrected to aervivo.com in the 2026-09-12 pass).
+## Aervivo on APIs.io
 
-No OpenAPI, AsyncAPI, GraphQL SDL, Protobuf or WSDL is published on any Aervivo host.
+Everything profiled for Aervivo is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/aervivo/](https://apis.io/providers/aervivo/)** — or go straight to one of the APIs or properties below.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [Aervivo Site MCP (Wix Site MCP runtime)](https://apis.io/servers/aervivo/aervivo-site-mcp-wix-site-mcp-runtime/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Aervivo Authentication](https://apis.io/security/aervivo/aervivo-authentication/)
+- [Aervivo Domain Security](https://apis.io/security/aervivo/aervivo-domain-security/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Aervivo Scopes](https://apis.io/scopes/aervivo/aervivo-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Aervivo Plans Pricing](https://apis.io/plans/aervivo/aervivo-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Aervivo Rate Limits](https://apis.io/rate-limits/aervivo/aervivo-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.aervivo.com/)
+- [Blog](https://www.aervivo.com/newsroom)
+- [Privacy policy](https://www.aervivo.com/privacy-policy)
+
+## API Evangelist rating
+
+**Kin Score 16.7** — emerging · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 58.3 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 14.3 |
+| Access clarity | 17.1 |
+
+**Agent readiness 19.8** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | platform (partial credit) |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
+
+**Regulatory alignment 36.7** — Telecommunications
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/aervivo/](https://apis.io/providers/aervivo/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Aervivo: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/aervivo/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
